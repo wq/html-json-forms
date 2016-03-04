@@ -1,0 +1,23 @@
+from rest_framework import serializers
+from html_json_forms.serializers import JSONFormSerializer
+from .models import Parent, Child
+
+
+class ChildSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Child
+        exclude = ('parent',)
+
+
+class ParentSerializer(JSONFormSerializer, serializers.ModelSerializer):
+    children = ChildSerializer(many=True)
+
+    def create(self, validated_data):
+        children = validated_data.pop('children')
+        parent = super(ParentSerializer, self).create(validated_data)
+        for child in children:
+            parent.children.create(**child)
+        return parent
+
+    class Meta:
+        model = Parent
