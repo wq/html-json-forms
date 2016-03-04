@@ -6,6 +6,9 @@ DATABASES = {
     }
 }
 ROOT_URLCONF = "tests.urls"
+REST_FRAMEWORK = {
+    'UNAUTHENTICATED_USER': None,
+}
 
 INSTALLED_APPS = [
     'tests.test_app',
