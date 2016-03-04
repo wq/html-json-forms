@@ -26,6 +26,17 @@ HTML JSON Forms use an array-style naming convention that makes it possible to r
 
 Note that the HTML JSON Form spec was never finalized.  The implementation is still useful as a formal way of representing structured data via traditional HTML forms.
 
+[![Latest PyPI Release](https://img.shields.io/pypi/v/html-json-forms.svg)](https://pypi.python.org/pypi/html-json-forms)
+[![Release Notes](https://img.shields.io/github/release/wq/html-json-forms.svg)](https://github.com/wq/html-json-forms/releases)
+[![License](https://img.shields.io/pypi/l/html-json-forms.svg)](https://github.com/wq/html-json-forms/blob/master/LICENSE)
+[![GitHub Stars](https://img.shields.io/github/stars/wq/html-json-forms.svg)](https://github.com/wq/html-json-forms/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/wq/html-json-forms.svg)](https://github.com/wq/html-json-forms/network)
+[![GitHub Issues](https://img.shields.io/github/issues/wq/html-json-forms.svg)](https://github.com/wq/html-json-forms/issues)
+
+[![Travis Build Status](https://img.shields.io/travis/wq/html-json-forms/master.svg)](https://travis-ci.org/wq/html-json-forms)
+[![Python Support](https://img.shields.io/pypi/pyversions/html-json-forms.svg)](https://pypi.python.org/pypi/html-json-forms)
+[![Django Support](https://img.shields.io/badge/Django-1.8%2C%201.9-blue.svg)](https://pypi.python.org/pypi/html-json-forms)
+
 ## Usage
 
 `html-json-forms` is available via PyPI:
@@ -48,7 +59,7 @@ parse_json_form({
 ### DRF Integration
 To enable HTML JSON Form parsing in Django REST Framework, subclass `JSONFormSerializer`:
 
-```
+```python
 from rest_framework import serializers
 from html_json_forms.serializers import JSONFormSerializer
 from .models import Parent, Child
@@ -70,4 +81,4 @@ Note that only the top-level serializer needs to have the `JSONFormSerializer` m
 [wq.db]: https://wq.io/wq.db
 [wq.app]: https://wq.io/wq.app
 [nested]: http://www.django-rest-framework.org/api-guide/serializers/#writable-nested-representations
-[patterns]: https://wq.io/docs/patterns
+[patterns]: https://wq.io/docs/about-patterns
