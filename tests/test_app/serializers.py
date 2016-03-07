@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from html_json_forms.serializers import JSONFormSerializer
+from html_json_forms.serializers import JSONFormModelSerializer
 from .models import Parent, Child
 
 
@@ -9,7 +9,7 @@ class ChildSerializer(serializers.ModelSerializer):
         exclude = ('parent',)
 
 
-class ParentSerializer(JSONFormSerializer, serializers.ModelSerializer):
+class ParentSerializer(JSONFormModelSerializer):
     children = ChildSerializer(many=True)
 
     def create(self, validated_data):

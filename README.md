@@ -72,6 +72,10 @@ class ParentSerializer(JSONFormSerializer, serializers.ModelSerializer):
     children = ChildSerializer(many=True)
     class Meta:
         model = Parent
+
+# Alternatively you can use the pre-mixed JSONFormModelSerializer:
+# class ParentSerializer(JSONFormModelSerializer):
+#    ...
 ```
 
 Note that only the top-level serializer needs to have the `JSONFormSerializer` mixin; the nested serializers will "just work" as if the data had been submitted via JSON.  Note further that this module only handles processing nested form data; it is still up to you to figure out how to handle [writing nested models][nested] (unless you are using [wq.db]'s [patterns] module, which includes writable nested serializers by default).
