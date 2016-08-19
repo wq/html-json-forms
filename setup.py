@@ -34,7 +34,7 @@ def parse_markdown_readme():
 
 setup(
     name='html-json-forms',
-    version='0.1.1',
+    version='1.0.0-dev',
     author='S. Andrew Sheppard',
     author_email='andrew@wq.io',
     url='https://github.com/wq/html-json-forms',
