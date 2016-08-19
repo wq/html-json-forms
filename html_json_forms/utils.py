@@ -1,6 +1,10 @@
 import re
 
 
+class ParseException(Exception):
+    pass
+
+
 def parse_json_form(dictionary, prefix=''):
     """
     Parse an HTML JSON form submission as per the W3C Draft spec
@@ -148,8 +152,11 @@ def set_json_value(context, step, current_value, entry_value, is_file):
 
     # Add empty values to array so indexing works like JavaScript
     if isinstance(context, list) and isinstance(step.key, int):
-        while len(context) <= step.key:
-            context.append(Undefined())
+        undefined_count = step.key - len(context) + 1
+        if undefined_count > 1000:
+            raise ParseException("Too many consecutive empty values!")
+        elif undefined_count > 0:
+            context += [Undefined()] * undefined_count
 
     # Step 7: Handle last step
     if step.last:
