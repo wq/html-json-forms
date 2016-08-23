@@ -35,7 +35,7 @@ Note that the HTML JSON Form spec was never finalized.  The implementation is st
 
 [![Travis Build Status](https://img.shields.io/travis/wq/html-json-forms/master.svg)](https://travis-ci.org/wq/html-json-forms)
 [![Python Support](https://img.shields.io/pypi/pyversions/html-json-forms.svg)](https://pypi.python.org/pypi/html-json-forms)
-[![Django Support](https://img.shields.io/badge/Django-1.8%2C%201.9-blue.svg)](https://pypi.python.org/pypi/html-json-forms)
+[![Django Support](https://img.shields.io/badge/Django-1.8%2C%201.9%2C%201.10-blue.svg)](https://pypi.python.org/pypi/html-json-forms)
 
 ## Usage
 
