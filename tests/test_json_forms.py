@@ -177,3 +177,22 @@ class TestHtmlJsonExamples(unittest.TestCase):
         }
         result = parse_json_form(input_data)
         assert result == expected_output
+
+    def test_single_element_array(self):
+        """
+        Test array with single item and no digit in key
+        """
+        input_data = {
+            "simple_key": "simple",
+            "nested[][nested_key_1]": "nested_value_1",
+            "nested[][nested_key_2]": "nested_value_2",
+        }
+        expected_output = {
+            "simple_key": "simple",
+            "nested": [{
+                "nested_key_1": "nested_value_1",
+                "nested_key_2": "nested_value_2",
+            }],
+        }
+        result = parse_json_form(input_data)
+        assert result == expected_output

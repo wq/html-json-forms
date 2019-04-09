@@ -100,10 +100,11 @@ def parse_json_path(path):
     while path:
         # Step 8.1 - Check for single-item array
         if path[:2] == "[]":
-            steps[-1].append = True
             path = path[2:]
-            if path:
-                return failed
+            steps.append(JsonStep(
+                type="array",
+                key=0,
+            ))
             continue
 
         # Step 8.2 - Check for array[index]
