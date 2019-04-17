@@ -21,3 +21,4 @@ class ParentSerializer(JSONFormModelSerializer):
 
     class Meta:
         model = Parent
+        fields = '__all__'

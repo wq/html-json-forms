@@ -6,5 +6,9 @@ class Parent(models.Model):
 
 
 class Child(models.Model):
-    parent = models.ForeignKey(Parent, related_name='children')
+    parent = models.ForeignKey(
+        Parent,
+        on_delete=models.CASCADE,
+        related_name='children',
+    )
     name = models.TextField()
